@@ -27,23 +27,15 @@ The aliases provided are intentionally long so as to not pollute the<br>
 vimperator namespace. Any binds the you prefer can be set up in your .vimperatorrc
 <br><br><br>
 
-`tileA[dd] (u[p] | d[own] | l[eft] | r[ight])`, adds a pane in one of those directions<br>
-however it is aliased for convenience and muscle memory with `vsplit` and `split`.<br>
+`tileA[dd] (u[p] | d[own] | l[eft] | r[ight])`, adds a pane in one of those directions however it is aliased for convenience and muscle memory with `vsplit` and `split`.<br>
 
-Note: by default vim makes `vsplit` open a new pane left of the current one, <br>
-and `split` open a new pane above the current one. tileview\_integration implements <br>
-these splits in the reverse order, with `vsplit` opening to the right, and <br>
-`split` opening below. At the moment there is no way to change this short of <br>
-modifying the code. However, if even one person asks for it, I'll add a setting. <br>
+Note: by default vim makes `vsplit` open a new pane left of the current one, and `split` open a new pane above the current one. tileview\_integration implements these splits in the reverse order, with `vsplit` opening to the right, and `split` opening below. At the moment there is no way to change this short of modifying the code. However, if even one person asks for it, I'll add a setting. <br>
 
 `tileEx[pand]` expands the current pane to fill the screen, until it is called again. <br>
 
 `tileR[emove]` removes a pane from the tiling. <br>
 
-Note: I wanted to bind this to q as well, to immitate the default behavior of vim, <br>
-however q is already used to close a tab by vimperator, and this led to buggy behavior <br>
-for vimperator and tileview\_integration. <br>
-You can, however, bind :q to :tr in your .vimperatorrc
+Note: I wanted to bind this to q as well, to immitate the default behavior of vim, however q is already used to close a tab by vimperator, and this led to buggy behavior for vimperator and tileview\_integration. You can, however, bind :q to :tr in your .vimperatorrc
 
 `tileEq[ualize]` equalizes the size of all the panes.
 
@@ -55,20 +47,17 @@ When tileSync is on, all panes will scroll at the same time.
 
 `tileO[ptions]` opens the tileView addon's menu.
 
-(If enough people ask me to add a particular setting into the <br>
-vimperator interface, I can add it.)
+(If enough people ask me to add a particular setting into the vimperator interface, I can add it.)
 
 `tileDefaultLayoutOpen` opens the default layout.
-The second argument tells tileView to save the tabs that are open <br>
-in addition to the layout of the panes. It defaults to 0.
 
-`tileDefaultLayoutSave [0 | 1]` saves the current layout as the default.
+`tileDefaultLayoutSave [0 | 1]` saves the current layout as the default. <br>
+The second argument tells tileView to save the tabs that are open in addition to the layout of the panes. It defaults to 0.
 
 `tileNamedLayoutOpen <name>` opens a saved layout.
 
 `tileNamedLayoutSave <name> [0 | 1]` saves a layout.<br>
-The second argument tells tileView to save the tabs that are open <br>
-in addition to the layout of the panes. It defaults to 0.
+The second argument tells tileView to save the tabs that are open in addition to the layout of the panes. It defaults to 0.
 
 `tileNamedLayoutDelete <name>` deletes a saved layout.
 
