@@ -9,7 +9,13 @@ This plugin was written by Christopher Grossack, 2016
 website: https://github.com/HallaSurvivor
 email: HallaSurvivor@gmail.com
 
-version 0.1
+version 0.2
+
+== CHANGELOG ==
+version 0.2:
+  * Removed the extra aliases, i.e. tileAdd vs ta.
+    People can include custom binds in their .vimperatorrc,
+    and this way we don't clutter vimperator's namespace.
 */
 
 function TileviewIntegration()
@@ -25,13 +31,13 @@ function TileviewIntegration()
     // The easy commands to implement. 
     // Call the commands in the menu as they are.
     commands.addUserCommand(
-      ["tileC[lose]", "tc"],
+      ["tileC[lose]"],
       "Close the current layout.",
       function() { TV.menuActions("close"); }
     );
 
     commands.addUserCommand(
-      ["tileA[dd]", "ta"],
+      ["tileA[dd]"],
       "Add a tiling in a direction (u[p] | d[own] | l[eft] | r[ight]).",
       function(direction)
       {
@@ -62,43 +68,43 @@ function TileviewIntegration()
     );
 
     commands.addUserCommand(
-      ["tileEx[pand]", "tex"],
+      ["tileEx[pand]"],
       "Expand a tile to fill the window.", 
       function() { TV.menuActions("expand"); }
     );
 
     commands.addUserCommand(
-      ["tileR[emove]", "tr"], // :q is already used by vimperator
+      ["tileR[emove]"], // :q is already used by vimperator
       "Remove a pane from the tiling",
       function() { TV.menuActions("remove"); }
     );
 
     commands.addUserCommand(
-      ["tileEq[ualize]", "teq"],
+      ["tileEq[ualize]"],
       "Equalize the sizes of the panes in the tiling",
       function() { TV.menuActions("equalize"); }
     );
 
     commands.addUserCommand(
-      ["tileV[iew]", "tv"],
+      ["tileV[iew]"],
       "Toggle the view mode of the window between tiled and untiled.",
       function() { TV.menuActions("view"); }
     );
 
     commands.addUserCommand(
-      ["tileS[ync]", "ts"],
+      ["tileS[ync]"],
       "Toggle the sync scroll mode of the window",
       function() { TV.menuActions("sync"); }
     );
 
     commands.addUserCommand(
-      ["tileO[ptions]", "top"],
+      ["tileO[ptions]"],
       "Open the tile options menu",
       function() { TV.menuActions("options"); }
     );
 
     commands.addUserCommand(
-      ["tileDefaultLayoutOpen", "tdo"],
+      ["tileDefaultLayoutOpen"],
       "Open the default layout.",
       function() { TV.menuActions("new-default"); }
     );
@@ -117,7 +123,7 @@ function TileviewIntegration()
     };
 
     commands.addUserCommand(
-      ["tilePr[eLayoutOpen]", "tpo"],
+      ["tilePr[eLayoutOpen]"],
       "Open a preinstalled layout.",
       function(layoutName)
       {
@@ -139,7 +145,7 @@ function TileviewIntegration()
     // implementation to sidestep the 
     // graphical menus.
     commands.addUserCommand(
-      ["tileNamedLayoutSave", "tls"],
+      ["tileNamedLayoutSave"],
       "Save the current layout. saving tabs defaults to 0. usage: <name> [0 | 1]",
       function(name, saveTabs)
       {
@@ -173,7 +179,7 @@ function TileviewIntegration()
     };
 
     commands.addUserCommand(
-      ["tileNamedLayoutOpen", "tlo"],
+      ["tileNamedLayoutOpen"],
       "Open a named layout. usage: <name>",
       function(name)
       {
@@ -201,7 +207,7 @@ function TileviewIntegration()
     );
 
     commands.addUserCommand(
-      ["tileNamedLayoutDelete", "tld"],
+      ["tileNamedLayoutDelete"],
       "Delete a named layout. usage: <name>",
       function(name)
       {
@@ -217,7 +223,7 @@ function TileviewIntegration()
     );
 
     commands.addUserCommand(
-      ["tileDefaultLayoutSave", "tds"],
+      ["tileDefaultLayoutSave"],
       "Save the current layout as default. saving tabs defaults to 0. usage: [0 | 1]",
       function(saveTabs)
       {
@@ -260,7 +266,7 @@ function TileviewIntegration()
     };
 
     commands.addUserCommand(
-      ["tileF[ocus]", "tf"],
+      ["tileF[ocus]"],
       "Focus on the panel with the tab in tabnumber n open. usage: tabNumber",
       //TODO - make this work with panels with tabs from other tabgroups.
       function(n)
