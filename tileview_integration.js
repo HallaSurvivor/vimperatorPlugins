@@ -9,14 +9,192 @@ This plugin was written by Christopher Grossack, 2016
 website: https://github.com/HallaSurvivor
 email: HallaSurvivor@gmail.com
 
-version 0.2
+version 0.3
 
 == CHANGELOG ==
 version 0.2:
   * Removed the extra aliases, i.e. tileAdd vs ta.
     People can include custom binds in their .vimperatorrc,
     and this way we don't clutter vimperator's namespace.
+
+version 0.3:
+  * Added info section
 */
+
+var INFO =
+<plugin name="tileview integration" version="0.3"
+        href="https://github.com/HallaSurvivor/vimperatorPlugins"
+        summary="vimperator integration with the tileview plugin"
+        lang="en-US"
+        xmlns="http://vimperator.org/namespaces/liberator">
+  <author email="HallaSurvivor@gmail.com">Christopher Grossack</author>
+  <license href="http://opensource.org/licenses/mit-license.php">MIT</license>
+  <project name="Vimperator"/>
+  <p>
+    This plugin provides integration with the tileView plugin written by DW-dev.
+    (tileView is available for download at www.addons.mozilla.org/en-US/firefox/addon/tile-view/)
+  </p>
+  <item>
+    <tags>tileAdd</tags>
+    <spec>tileAdd <a>(up | down | left | right)</a></spec>
+    <description><p>
+      Add a tile in the specified direction.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>split</tags>
+    <spec>split</spec>
+    <description><p>
+      create a horizontal split, just like vim.
+
+      NOTE: this command is simply an alias for <code>tileAdd down</code>
+
+      NOTE: vim defaults to putting the new panel above the current one.
+      This plugin places the new panel below the current one.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>vsplit</tags>
+    <spec>vsplit<spec>
+    <description><p>
+      create a vertical split, just like vim.
+
+      NOTE: this command is simply and alias for <code>tileAdd right</code>
+
+      NOTE: vim defaults to putting the new panel left the current one.
+      This plugin places the new panel to the right of the current one
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileExpand</tags>
+    <spec>tileExpand</spec>
+    <description><p>
+      Expand the current pane to fill the screen
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileRemove</tags>
+    <spec>tileRemove</spec>
+    <description><p>
+      remove a pane from the tiling.
+
+      NOTE: this functions the way :q does by default in vim.
+      Unfortunately, I was unable to use this binding, as it caused
+      buggy behavior in vimperator and tileview_integration due to 
+      conflicts with a preexisting vimperator binding.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileEqualize</tags>
+    <spec>tileEqualize</spec>
+    <description><p>
+      Equalize the size of all the panes.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileView</tags>
+    <spec>tileView</spec>
+    <description><p>
+      Toggle tileView on and off.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileSync</tags>
+    <spec>tileSync</spec>
+    <description><p>
+      Toggle sync scroll.
+
+      While sync scroll is on, all panes will scroll at the same time.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileOptions</tags>
+    <spec>tileOptions</spec>
+    <description><p>
+      Show the tileView options menu.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileDefaultLayoutOpen</tags>
+    <spec>tileDefaultLayoutOpen</spec>
+    <description><p>
+      Open the default layout.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileDefaultLayoutSave</tags>
+    <spec>tileDefaultLayoutSave <oa>[0 | 1]</oa><spec>
+    <description><p>
+      save the current layout as the default.
+
+      The argument tells tileView whether or not to save tabs as well as 
+      the layout of the panes. (default: 0)
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileNamedLayoutOpen</tags>
+    <spec>tileNamedLayoutOpen <a>name</a></spec>
+    <description><p>
+      opens a saved layout.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileNamedLayoutSave</tags>
+    <spec>tileNamedLayoutSave <a>name</a> <oa>[0 | 1]</oa></spec>
+    <description><p>
+      Save the current layout under a certain name.
+
+      the second argument tells tileView whether or not to save tabs as well
+      as the layout of the panes (default: 0)
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileNamedLayoutDelete</tags>
+    <spec>tileNamedLayoutDelete <a>name</a><spec>
+    <description><p>
+      Delete a previously saved layout.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tilePrelayoutOpen</tags>
+    <spec>tilePrelayoutOpen <a>name</a><spec>
+    <description><p>
+      Open one of the predefined tile layouts.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileClose</tags>
+    <spec>tileClose</spec>
+    <description><p>
+      Close the open layout.
+    </p></description>
+  </item>
+
+  <item>
+    <tags>tileFocus</tags>
+    <spec>tileFocus <a>tabNumber</a></spec>
+    <description><p>
+      Change the active pane to the pane with the specified tab open in it.
+    </p></description>
+  </item>
+</plugin>
+
+
 
 function TileviewIntegration()
 {
