@@ -65,5 +65,7 @@ The second argument tells tileView to save the tabs that are open in addition to
 
 `tileC[lose]` closes the current layout.
 
-`tileFocus <tabNumber>` changes the active tab to the specified number.<br>
+`tileFocus <tabNumber>` changes the active panel to the panel with the specified tab.<br>
 Autocomplete will list the tabnumbers alongside the tab associated with them.
+
+`tf <tabNumber>` is an alias for tileFocus.
