@@ -24,7 +24,7 @@ This allows for the a TMUX like experience for firefox. <br>
 The plugin will not work without also installing tileView, linked above.
 
 The aliases provided are intentionally long so as to not pollute the<br>
-vimperator namespace. Any binds the you prefer can be set up in your .vimperatorrc
+vimperator namespace. Any binds you prefer can be set up in your .vimperatorrc
 <br><br><br>
 
 `tileA[dd] (u[p] | d[own] | l[eft] | r[ight])`, adds a pane in one of those directions however it is aliased for convenience and muscle memory with `vsplit` and `split`.<br>
