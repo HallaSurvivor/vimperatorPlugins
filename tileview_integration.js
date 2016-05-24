@@ -192,6 +192,16 @@ var INFO =
       Change the active pane to the pane with the specified tab open in it.
     </p></description>
   </item>
+
+  <item>
+    <tags>tf</tags>
+    <spec>tf <a>tabNumber</a></spec>
+    <description><p>
+      Change the active pane to the pane with the specified tab open in it.
+
+      NOTE: this is an alias for tileFocus
+    </p></description>
+  </item>
 </plugin>
 
 
