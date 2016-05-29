@@ -12,36 +12,16 @@
  *   
  *   - The new hintmode 'p' will save the selected link to pocket.
  *
- * version 0.1
+ * version 0.2
+ *
+ * == CHANGELOG ==
+ * version 0.2:
+ *   Removed the INFO section, as it caused an unfixable bug.
  *
  * website: https://github.com/HallaSurvivor
  * email: HallaSurvivor@gmail.com
  */
 
-var INFO =
-<plugin name="pocket integration" version="0.1"
-        href="https://github.com/HallaSurvivor/vimperatorPlugins"
-        summary="integration with pocket"
-        lalng="en-US"
-        xmlns="http://vimperator.org/namespaces/liberator">
-  <author email="HallaSurvivor@gmail.com">Christopher Grossack</author>
-  <license href="http://opensource.org/licenses/mit-license.php">MIT</license>
-  <project name="Vimperator"/>
-  <p>This plugin provides a means of saving tabs/links to pocket.</p>
-  <item>
-    <tags>pocket</tags>
-    <spec>pocket<spec>
-    <description><p>
-      Add open tab to pocket. 
-    </p></description>
-  </item>
-  <item>
-    <tags>pocket hint</tags>
-    <spec>;p <a>1</a></spec>
-  </item>
-</plugin>
-
-commands.add(
 function pocket_integration()
 {
   var gB = window.gBrowser;

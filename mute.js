@@ -6,7 +6,7 @@
  * website: https://github.com/HallaSurvivor
  * email: HallaSurvivor@gmail.com
  *
- * version 0.2
+ * version 0.3
  *
  * Commands:
  *
@@ -17,27 +17,28 @@
  * version 0.2
  *   Added INFO section.
  *
+ * version 0.3
+ *   Made the code more intuitive in tab selection
+ *
+ *   Added completion with tab labels
+ *
+ *   Removed INFO section, as it introduced an unfixable bug
+ *
  */
 
-var INFO =
-<plugin name="mute" version="0.2"
-        href="https://github.com/HallaSurvivor/vimperatorPlugins"
-        summary="Command to mute tabs"
-        lalng="en-US"
-        xmlns="http://vimperator.org/namespaces/liberator">
-  <author email="HallaSurvivor@gmail.com">Christopher Grossack</author>
-  <license href="http://opensource.org/licenses/mit-license.php">MIT</license>
-  <project name="Vimperator"/>
-  <p>This plugin provides a bind to mute a tab in the group.</p>
-  <item>
-    <tags>mute</tags>
-    <spec>mute <oa>n</oa><spec>
-    <description><p>
-      Mute tab number n. 
-      (default: current tab)
-    </p></description>
-  </item>
-</plugin>
+function _completer(context)
+{
+  var allTabs = gBrowser.visibleTabs;
+
+  // Remember, vimperator indexes from 1.
+  var indices = allTabs.map(function(tab) { return allTabs.indexOf(tab) + 1 });
+
+  var labels  = allTabs.map(function(tab) { return tab.label });
+
+  var indicesAndHints = indices.map(function(e, i) { return [indices[i], labels[i]] });
+
+  context.completions = indicesAndHints;
+}
 
 commands.add(
   ["mute"],
@@ -51,7 +52,8 @@ commands.add(
     else
     {
       // JS indexes from 0, vimperator indexes from 1
-      config.tabbrowser.visibleTabs[n - 1].toggleMuteAudio();
+      window.gBrowser.visibleTabs[n - 1].toggleMuteAudio();
     }
-  }
+  },
+  { argCount: '1', completer: _completer }
 );
