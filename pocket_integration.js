@@ -8,7 +8,7 @@
  * This plugin exports one functions and one hint mode
  * to better integrate firefox pocket and vimperator.
  *
- *   - po[cket] [n] adds the n'th tab to pocket (current tab by default).
+ *   - po[cket] adds the current tab to pocket.
  *   
  *   - The new hintmode 'p' will save the selected link to pocket.
  *
@@ -30,18 +30,14 @@ var INFO =
   <p>This plugin provides a means of saving tabs/links to pocket.</p>
   <item>
     <tags>pocket</tags>
-    <spec>pocket <oa>n</oa><spec>
+    <spec>pocket<spec>
     <description><p>
-      Add tab n to pocket. 
-      (default: current tab)
+      Add open tab to pocket. 
     </p></description>
   </item>
   <item>
     <tags>pocket hint</tags>
     <spec>;p <a>1</a></spec>
-    <description><p>
-      A hint mode. Save the selected link to pocket.
-    </p></description>
   </item>
 </plugin>
 
