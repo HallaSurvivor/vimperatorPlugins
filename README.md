@@ -30,7 +30,7 @@ Note: by default vim makes `vsplit` open a new pane left of the current one, and
 
 `tileR[emove]` removes a pane from the tiling. 
 
-Note: I wanted to bind this to q as well, to immitate the default behavior of vim, however q is already used to close a tab by vimperator, and this led to buggy behavior for vimperator and tileview\_integration. You can, however, bind :q to :tr in your .vimperatorrc
+Note: I wanted to bind this to q as well, to immitate the default behavior of vim, however q is already used to close a tab by vimperator, and this led to buggy behavior for vimperator and tileview\_integration. You can, however, bind :q to :tileR in your .vimperatorrc
 
 `tileEq[ualize]` equalizes the size of all the panes.
 
