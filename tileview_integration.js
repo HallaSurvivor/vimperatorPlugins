@@ -9,7 +9,7 @@ This plugin was written by Christopher Grossack, 2016
 website: https://github.com/HallaSurvivor
 email: HallaSurvivor@gmail.com
 
-version 0.4
+version 0.5
 
 == CHANGELOG ==
 version 0.2:
@@ -22,6 +22,9 @@ version 0.3:
 
 version 0.4:
   * Removed info section as it caused an unfixable bug.
+
+version 0.5:
+  * Added tf alias for tileFocus
 */
 
 function TileviewIntegration()
